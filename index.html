@@ -90,6 +90,19 @@
             transform: translateY(-3px);
             box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
         }
+        .clickable-image-container {
+            margin-top: 20px;
+        }
+        .clickable-image {
+            width: 200px;
+            cursor: pointer;
+            border: 2px solid #fff;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        .clickable-image:hover {
+            transform: scale(1.05);
+        }
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -111,6 +124,32 @@
                 <a href="https://www.youtube.com/channel/UCpHr1vbgFIFzD86kEasxA6Q" target="_blank">YouTube</a>
             </div>
         </div>
+        <div class="clickable-image-container">
+            <img id="clickableImage" class="clickable-image" src="Stickers/12.png" alt="Clic para cambiar la imagen">
+        </div>
     </div>
+
+    <script>
+        const images = [
+            "Stickers/12.png",
+            "Stickers/1.jpeg",
+            "Stickers/10.png",
+            "Stickers/2.png",
+            "Stickers/11.png",
+            "Stickers/3.png",
+            "Stickers/4.png",
+            "Stickers/5.png",
+            "Stickers/6.png",
+            "Stickers/7.png",
+            "Stickers/8.png",
+            "Stickers/9.png",
+        ];
+        let currentIndex = 0;
+
+        document.getElementById("clickableImage").addEventListener("click", function() {
+            currentIndex = (currentIndex + 1) % images.length;
+            this.src = images[currentIndex];
+        });
+    </script>
 </body>
 </html>
