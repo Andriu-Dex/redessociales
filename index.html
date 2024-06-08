@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Andriu Dex - Redes Sociales</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             display: flex;
@@ -12,9 +13,10 @@
             flex-direction: column;
             height: 100vh;
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             overflow: hidden;
             position: relative;
+            background-color: #111;
         }
         .background-image {
             position: absolute;
@@ -22,7 +24,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('/Portada\ de\ youtube\ 2.jpg'); /* Ruta a la imagen de fondo */
+            background-image: url('/Portada de youtube 2.jpg'); /* Ruta a la imagen de fondo */
             background-size: cover;
             background-position: center;
             filter: blur(10px);
@@ -40,11 +42,14 @@
         .container {
             text-align: center;
             z-index: 1;
+            color: white;
+            animation: fadeIn 1.5s ease-in-out;
         }
         h1 {
-            font-size: 2em;
+            font-size: 2.5em;
             margin-bottom: 20px;
-            color: white; /* Ajusta el color del texto para mejor contraste */
+            color: #fff;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
         }
         .social-links {
             display: flex;
@@ -56,11 +61,19 @@
             color: white;
             background-color: #0073e6;
             padding: 10px 20px;
-            border-radius: 5px;
+            border-radius: 25px;
             font-size: 1.2em;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
         }
         .social-links a:hover {
             background-color: #005bb5;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
     </style>
 </head>
