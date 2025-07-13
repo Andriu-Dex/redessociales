@@ -1,0 +1,431 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+  background-color: #0a0a0a;
+  color: white;
+  min-height: 100vh;
+}
+
+/* Fondo con efecto parallax */
+.background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("img/AndriuPortada.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  filter: blur(8px);
+  z-index: -2;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.7),
+    rgba(20, 20, 50, 0.8)
+  );
+  z-index: -1;
+}
+
+/* Container principal responsive */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  gap: 30px;
+}
+
+/* Header con animación */
+.header {
+  text-align: center;
+  animation: slideInTop 1s ease-out;
+}
+
+.header h1 {
+  font-family: "Orbitron", monospace;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease-in-out infinite;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+  margin-bottom: 10px;
+}
+
+.header .subtitle {
+  font-family: "Caveat", cursive;
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  color: #ffffff;
+  opacity: 0.9;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Sección de introducción */
+.intro-section {
+  max-width: 800px;
+  text-align: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: slideInLeft 1s ease-out 0.3s both;
+}
+
+.intro-section p {
+  font-family: "Roboto Slab", serif;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  line-height: 1.6;
+  color: #ffffff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Enlaces sociales responsive */
+.social-section {
+  width: 100%;
+  max-width: 500px;
+  animation: slideInRight 1s ease-out 0.6s both;
+}
+
+.social-links {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-decoration: none;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 50px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.05)
+  );
+  border: 2px solid transparent;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.social-links a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.social-links a:hover::before {
+  left: 100%;
+}
+
+.social-links a:hover {
+  transform: translateY(-5px) scale(1.05);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.social-links .kick:hover {
+  background: linear-gradient(135deg, #53fc18, #00d300);
+}
+
+/* Estilos para iconos de Simple Icons */
+.si {
+  font-size: 1.2em;
+}
+
+/* Icono personalizado de Kick (backup) */
+.kick-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  font-weight: 900;
+  font-family: "Orbitron", monospace;
+  font-size: 14px;
+  background: linear-gradient(135deg, #53fc18, #00d300);
+  color: #000;
+  border-radius: 4px;
+  text-shadow: none;
+  box-shadow: 0 2px 4px rgba(83, 252, 24, 0.3);
+  transition: all 0.3s ease;
+}
+.social-links .instagram:hover {
+  background: linear-gradient(135deg, #e4405f, #833ab4);
+}
+.social-links .youtube:hover {
+  background: linear-gradient(135deg, #ff0000, #cc0000);
+}
+
+/* Carrusel de imágenes mejorado */
+.carousel-section {
+  width: 100%;
+  max-width: 400px;
+  animation: slideInBottom 1s ease-out 0.9s both;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  transform: scale(0.8);
+}
+
+.carousel-slide.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.carousel-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding: 0 20px;
+}
+
+.carousel-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  padding: 10px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.carousel-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.carousel-indicators {
+  display: flex;
+  gap: 8px;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background: #ffffff;
+  transform: scale(1.2);
+}
+
+.auto-play-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 1rem;
+  padding: 8px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  margin-top: 10px;
+}
+
+.auto-play-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Animaciones */
+@keyframes gradientShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes slideInTop {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInBottom {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Media Queries para dispositivos móviles */
+@media (max-width: 768px) {
+  .main-container {
+    gap: 25px;
+    padding: 15px;
+  }
+
+  .intro-section {
+    padding: 15px;
+    margin: 0 10px;
+  }
+
+  .social-links {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .social-links a {
+    padding: 12px 20px;
+  }
+
+  .carousel-container {
+    max-width: 250px;
+  }
+
+  .carousel-wrapper {
+    height: 250px;
+  }
+
+  .carousel-controls {
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-container {
+    gap: 20px;
+    padding: 10px;
+  }
+
+  .intro-section {
+    padding: 12px;
+    border-radius: 15px;
+  }
+
+  .social-links a {
+    padding: 10px 15px;
+    gap: 8px;
+  }
+
+  .carousel-container {
+    max-width: 200px;
+  }
+
+  .carousel-wrapper {
+    height: 200px;
+  }
+
+  .carousel-btn {
+    font-size: 1.2rem;
+    padding: 8px 12px;
+  }
+}
+
+/* Scroll suave para navegadores que lo soporten */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
