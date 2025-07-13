@@ -41,6 +41,190 @@ body {
   z-index: -1;
 }
 
+/* Animación de fondo */
+.background-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particles-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.particle {
+  position: absolute;
+  background: radial-gradient(
+    circle,
+    rgba(255, 215, 0, 0.8) 0%,
+    rgba(255, 215, 0, 0) 70%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+  animation: floatUp var(--duration) linear infinite;
+}
+
+.particle.golden {
+  background: radial-gradient(
+    circle,
+    rgba(255, 215, 0, 0.6) 0%,
+    rgba(255, 215, 0, 0) 70%
+  );
+}
+
+.particle.blue {
+  background: radial-gradient(
+    circle,
+    rgba(69, 183, 209, 0.6) 0%,
+    rgba(69, 183, 209, 0) 70%
+  );
+}
+
+.particle.pink {
+  background: radial-gradient(
+    circle,
+    rgba(255, 107, 107, 0.6) 0%,
+    rgba(255, 107, 107, 0) 70%
+  );
+}
+
+.gaming-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.gaming-element {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  animation: elementFloat var(--duration) ease-in-out infinite;
+}
+
+.gaming-element svg {
+  width: 24px;
+  height: 24px;
+  filter: drop-shadow(0 0 8px currentColor);
+}
+
+.gaming-element.controller {
+  color: #ff6b6b;
+}
+
+.gaming-element.sword {
+  color: #4ecdc4;
+}
+
+.gaming-element.shield {
+  color: #45b7d1;
+}
+
+.anime-effects {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.anime-effect {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  animation: animeFloat var(--duration) ease-in-out infinite;
+}
+
+.anime-effect svg {
+  width: 20px;
+  height: 20px;
+  filter: drop-shadow(0 0 6px currentColor);
+}
+
+.anime-effect.star {
+  color: #ffd700;
+}
+
+.anime-effect.heart {
+  color: #ff69b4;
+}
+
+.anime-effect.lightning {
+  color: #00ffff;
+}
+
+/* Efectos de energía */
+.energy-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: energyPulse var(--duration) ease-in-out infinite;
+}
+
+.energy-orb.electric {
+  background: radial-gradient(
+    circle,
+    rgba(0, 255, 255, 0.8) 0%,
+    rgba(0, 255, 255, 0.4) 30%,
+    rgba(0, 255, 255, 0) 70%
+  );
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.6),
+    inset 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+.energy-orb.fire {
+  background: radial-gradient(
+    circle,
+    rgba(255, 69, 0, 0.8) 0%,
+    rgba(255, 140, 0, 0.4) 30%,
+    rgba(255, 69, 0, 0) 70%
+  );
+  box-shadow: 0 0 20px rgba(255, 69, 0, 0.6),
+    inset 0 0 20px rgba(255, 140, 0, 0.3);
+}
+
+.energy-orb.magic {
+  background: radial-gradient(
+    circle,
+    rgba(138, 43, 226, 0.8) 0%,
+    rgba(255, 0, 255, 0.4) 30%,
+    rgba(138, 43, 226, 0) 70%
+  );
+  box-shadow: 0 0 20px rgba(138, 43, 226, 0.6),
+    inset 0 0 20px rgba(255, 0, 255, 0.3);
+}
+
+.constellation-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.constellation-line {
+  position: absolute;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  height: 1px;
+  pointer-events: none;
+  animation: lineMove var(--duration) linear infinite;
+}
+
 /* Container principal responsive */
 .main-container {
   display: flex;
@@ -326,6 +510,57 @@ body {
   }
 }
 
+@keyframes floatUp {
+  0% {
+    transform: translateY(100vh) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes symbolFloat {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-10vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes lineMove {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100vw);
+    opacity: 0;
+  }
+}
+
 @keyframes slideInTop {
   from {
     opacity: 0;
@@ -370,6 +605,184 @@ body {
   }
 }
 
+@keyframes floatUp {
+  0% {
+    transform: translateY(100vh) scale(0);
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+    transform: translateY(95vh) scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(50vh) scale(1);
+  }
+  95% {
+    opacity: 1;
+    transform: translateY(5vh) scale(0.8);
+  }
+  100% {
+    transform: translateY(0vh) scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes elementFloat {
+  0% {
+    transform: translateY(110vh) rotate(0deg) scale(0);
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.9;
+    transform: translateY(95vh) rotate(18deg) scale(0.4);
+  }
+  25% {
+    opacity: 0.8;
+    transform: translateY(75vh) rotate(90deg) scale(0.8);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateY(50vh) rotate(180deg) scale(1.1);
+  }
+  75% {
+    opacity: 0.6;
+    transform: translateY(25vh) rotate(270deg) scale(1.3);
+  }
+  95% {
+    opacity: 0.4;
+    transform: translateY(5vh) rotate(340deg) scale(0.9);
+  }
+  100% {
+    transform: translateY(-5vh) rotate(360deg) scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes animeFloat {
+  0% {
+    transform: translateY(110vh) translateX(0px) rotate(0deg) scale(0);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+    transform: translateY(92vh) translateX(10px) rotate(30deg) scale(0.3);
+  }
+  25% {
+    opacity: 0.9;
+    transform: translateY(75vh) translateX(-8px) rotate(90deg) scale(0.7);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(50vh) translateX(15px) rotate(180deg) scale(1);
+  }
+  75% {
+    opacity: 0.6;
+    transform: translateY(25vh) translateX(-5px) rotate(270deg) scale(1.2);
+  }
+  92% {
+    opacity: 0.3;
+    transform: translateY(8vh) translateX(12px) rotate(330deg) scale(0.8);
+  }
+  100% {
+    transform: translateY(-5vh) translateX(0px) rotate(360deg) scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes energyPulse {
+  0% {
+    transform: translateY(100vh) scale(0.2);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+    transform: translateY(90vh) scale(0.5);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(80vh) scale(0.8);
+  }
+  40% {
+    opacity: 0.9;
+    transform: translateY(60vh) scale(1.2);
+    filter: brightness(1.5);
+  }
+  60% {
+    opacity: 0.7;
+    transform: translateY(40vh) scale(1.5);
+    filter: brightness(1.8);
+  }
+  80% {
+    opacity: 0.5;
+    transform: translateY(20vh) scale(1.1);
+    filter: brightness(1.2);
+  }
+  90% {
+    opacity: 0.3;
+    transform: translateY(10vh) scale(0.8);
+  }
+  100% {
+    transform: translateY(-10vh) scale(0.3);
+    opacity: 0;
+  }
+}
+
+/* Efectos especiales para elementos específicos */
+.gaming-element.electric {
+  animation: elementFloat var(--duration) ease-in-out infinite,
+    electricSpark 2s ease-in-out infinite;
+}
+
+.anime-effect.magic {
+  animation: animeFloat var(--duration) ease-in-out infinite,
+    magicGlow 3s ease-in-out infinite;
+}
+
+.energy-orb.fire {
+  animation: energyPulse var(--duration) ease-in-out infinite,
+    fireFlicker 1.5s ease-in-out infinite;
+}
+
+/* Efecto de trazado de líneas mejorado */
+.constellation-line.animated {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 255, 255, 0.3),
+    rgba(255, 215, 0, 0.4),
+    rgba(255, 69, 183, 0.3),
+    transparent
+  );
+  animation: lineMove var(--duration) linear infinite,
+    magicGlow 4s ease-in-out infinite;
+}
+
+/* Partículas mejoradas con efectos anime */
+.particle.anime {
+  background: radial-gradient(
+    circle,
+    rgba(255, 20, 147, 0.8) 0%,
+    rgba(0, 191, 255, 0.6) 30%,
+    rgba(255, 215, 0, 0.4) 60%,
+    transparent 80%
+  );
+  border-radius: 50%;
+  animation: floatUp var(--duration) linear infinite,
+    magicGlow 2s ease-in-out infinite;
+}
+
+.particle.electric {
+  background: radial-gradient(
+    circle,
+    rgba(0, 255, 255, 0.9) 0%,
+    rgba(135, 206, 250, 0.6) 40%,
+    transparent 70%
+  );
+  animation: floatUp var(--duration) linear infinite,
+    electricSpark 1s ease-in-out infinite;
+}
+
 /* Media Queries para dispositivos móviles */
 @media (max-width: 768px) {
   .main-container {
@@ -411,6 +824,20 @@ body {
   .social-links a {
     padding: 12px 20px;
   }
+
+  /* Reducir animaciones en móviles para mejor performance */
+  .particle {
+    animation-duration: 12s;
+  }
+
+  .gaming-symbol {
+    font-size: 16px;
+    animation-duration: 15s;
+  }
+
+  .constellation-line {
+    animation-duration: 12s;
+  }
 }
 
 @media (max-width: 480px) {
@@ -449,6 +876,29 @@ body {
   .social-links a {
     padding: 10px 15px;
     gap: 8px;
+  }
+
+  /* Animaciones mínimas en pantallas muy pequeñas */
+  .particle {
+    animation-duration: 15s;
+  }
+
+  .gaming-symbol {
+    font-size: 14px;
+    animation-duration: 18s;
+  }
+}
+
+/* Respetar preferencias de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  .particle,
+  .gaming-symbol,
+  .constellation-line {
+    animation: none !important;
+  }
+
+  .background-animation {
+    display: none;
   }
 }
 
